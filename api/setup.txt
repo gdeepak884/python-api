@@ -1,0 +1,104 @@
+Setup: 
+
+cd api
+python3 app.py
+
+API Endpoints:
+
+1) Transaction/<date> , GET
+
+Request:
+http://127.0.0.1:3000/transactions/29%20Jun%2017
+
+Response:
+[
+  {
+    "account_no": "409000611074", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17", 
+    "deposit_amt": 100000.0, 
+    "id": 3, 
+    "transaction_details": "TRF FROM  Indiaforensic SERVICES", 
+    "value_date": "29 Jun 17", 
+    "withdrawal_amt": 50000.0
+  }, 
+  {
+    "account_no": "409000611072", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17", 
+    "deposit_amt": 100000.0, 
+    "id": 4, 
+    "transaction_details": "TRF FROM  Indiaforensic SERVICES", 
+    "value_date": "29 Jun 17", 
+    "withdrawal_amt": 50000.0
+  }, 
+  {
+    "account_no": "409000611070", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17", 
+    "deposit_amt": 100000.0, 
+    "id": 5, 
+    "transaction_details": "TRF FROM  Indiaforensic SERVICES", 
+    "value_date": "29 Jun 17", 
+    "withdrawal_amt": 50000.0
+  }
+]
+
+2) Balance, GET
+
+Request:
+http://127.0.0.1:3000/balance/29%20Jun%2017
+   
+Response:
+[
+  {
+    "account_no": "409000611074", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17"
+  }, 
+  {
+    "account_no": "409000611072", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17"
+  }, 
+  {
+    "account_no": "409000611070", 
+    "balance_amt": 0.0, 
+    "date_created": "29 Jun 17"
+  }
+]
+
+3) /details/:id/ , GET
+
+Request:
+http://127.0.0.1:3000/details/3
+
+Response:
+{
+  "account_no": "409000611074", 
+  "balance_amt": 0.0, 
+  "date_created": "29 Jun 17", 
+  "deposit_amt": 100000.0, 
+  "transaction_details": "TRF FROM  Indiaforensic SERVICES", 
+  "value_date": "29 Jun 17", 
+  "withdrawal_amt": 50000.0
+}
+
+4) Add Transaction, POST
+
+Request:
+http://127.0.0.1:3000/transactions/add
+
+Body:
+account_no:409000611070
+date_created:29 Jun 17
+transaction_details:TRF FROM  Indiaforensic SERVICES
+value_date:29 Jun 17
+withdrawal_amt:50000.00
+deposit_amt:100000.00
+balance_amt:0
+
+Response:
+{
+  "message": "Transaction added successfully!"
+}
